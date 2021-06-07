@@ -3,9 +3,9 @@ TurkuNLP 2021
 
 ## CSC Puhti
 
-module purge # clear the loaded modules
+`module purge` # clear the loaded modules
 
-module load pytorch/1.6
+`module load pytorch/1.6`
 
 // and then create a virtual environment, activate it, and install the requirements
 
