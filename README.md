@@ -4,7 +4,9 @@ TurkuNLP 2021
 ## CSC Puhti
 
 module purge # clear the loaded modules
+
 module load pytorch/1.6
+
 // and then create a virtual environment, activate it, and install the requirements
 
 python3 -m venv VENV-NAME --system-site-packages # this creates a virtual environment
