@@ -87,10 +87,15 @@ Jos työ varaa 40 corea (kaikki) se vie myös koko noden muistin (silloin on ok 
 - Ohjelman asentaminen: jos haluat lisätä ympäristöön komennon, mene kansioon, ja luo polku sinne
 - Muistin suhteen tähtää 1-2 gigan ekstraan. CPU ajassa 100 % tehokkuuteen
 
-module load jälkeen:
+## Batch job scripts
 
+`module load` jälkeen:
+
+```bash
 export TMPDIR=$LOCAL_SCRATCH
+
 export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
+```
 
 
 
