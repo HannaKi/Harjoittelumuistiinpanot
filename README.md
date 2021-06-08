@@ -86,6 +86,7 @@ Jos työ varaa 40 corea (kaikki) se vie myös koko noden muistin (silloin on ok 
 
 - Ohjelman asentaminen: jos haluat lisätä ympäristöön komennon, mene kansioon, ja luo polku sinne
 - Muistin suhteen tähtää 1-2 gigan ekstraan. CPU ajassa 100 % tehokkuuteen
+- Jos sbatchin jälkeen saat viestin kun kysyt squeue -u $USER "(Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)" --> 
 
 ## Batch job scripts
 
