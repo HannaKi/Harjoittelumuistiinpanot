@@ -10,7 +10,7 @@ TurkuNLP 2021
 And then create a virtual environment, activate it, and install the requirements
 
 `python3 -m venv VENV-NAME --system-site-packages` this creates a virtual environment.
-`source VENV-NAME/bin/activate` This activates the virtual environment, so after this line, you will be in the venv until you use the comman `deactivate`
+`source VENV-NAME/bin/activate` This activates the virtual environment, so after this line, you will be in the venv until you use the command `deactivate`
 
 To run HuggingFace example projects install from the source:
 
