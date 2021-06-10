@@ -64,6 +64,31 @@ jos gpu muistia on jäljellä, kasvata batch size
 
 tyhjennä hakemistot ennen kuin ajat varsinaisella 
 
+### Running a serial job
+
+```bash
+module purge
+module load pytorch/1.8
+cd transformers/
+python -m pip install --user .
+cd ..
+python -m pip install --user -r requirements.txt
+```
+slurm_predict.sh:
+
+#!/bin/bash
+#SBATCH --account=project_2002820
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+
+module purge
+module load pytorch/1.8
+
+srun python predict_squad.py
+
+```sbatch slurm_predict.sh```
 
 Run your test in the test queue or in an interactive session directly from the command line
 
