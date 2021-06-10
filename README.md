@@ -97,6 +97,25 @@ export TMPDIR=$LOCAL_SCRATCH
 
 export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
 ```
+## VIM
+
+Like most Unix programs Vim can be suspended by pressing CTRL-Z. This stops Vim and takes you back to the shell it was started in. You can then do any other commands until you are bored with them. Then bring back Vim with the "fg" command.
+
+```bash
+CTRL-Z
+{any sequence of shell commands}
+fg
+```
+
+You are right back where you left Vim, nothing has changed.
+
+https://vi.stackexchange.com/questions/16189/how-to-switch-between-buffer-and-terminal
+
+
+## Virtual machine 
+
+How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
+
 ## Interactive session with Jupyter notebook
 
 1. Start interactive session
@@ -107,7 +126,8 @@ export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
    
    module load pytorch/1.8
    pip install --user jupyter
-   start-jupyter-server
+   (Not sure if needed: export PATH=$PATH:~/.local/bin)
+   NOPE: python3 -m notebook
 
 3. Create SSH tunnel from your PC to Puhti compute node
 
@@ -117,9 +137,6 @@ export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
 
 
 
-## Virtual machine 
-
-How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
 
 
 
