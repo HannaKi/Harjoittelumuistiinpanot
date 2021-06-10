@@ -98,6 +98,10 @@ export TMPDIR=$LOCAL_SCRATCH
 export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
 ```
 
+## Virtual machine 
+
+How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
+
 
 
 
