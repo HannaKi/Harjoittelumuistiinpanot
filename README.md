@@ -97,6 +97,25 @@ export TMPDIR=$LOCAL_SCRATCH
 
 export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
 ```
+## Interactive session with Jupyter notebook
+
+1. Start interactive session
+
+   sinteractive --account project_XXXXXXX --time 02:00:00 --cores 1
+   
+2. Load suitable modules and start RStudio or Jupyter Notebook server
+   
+   module load pytorch/1.8
+   pip install --user jupyter
+   start-jupyter-server
+
+3. Create SSH tunnel from your PC to Puhti compute node
+
+4. Open RStudio or Jupyter Notebook in local web browser
+
+
+
+
 
 ## Virtual machine 
 
