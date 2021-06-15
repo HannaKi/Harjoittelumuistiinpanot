@@ -22,13 +22,6 @@ python -m pip install .
 cd ..
 python -m pip install -r requirements.txt
 ```
-
-```bash
-sbatch slurm_train_qa.bash # aja batch job
-squeue -u $USER # kysy jonossa olevat työt
-gpuseff <JOBID> to get GPU efficiency statistics
-```
-
 ## Singularity containers
 
 If you run the stuff in a Singularity container no venv is needed.
@@ -52,6 +45,19 @@ Set the path if needed:
 
 `python -m pip install --user -r requirements.txt` --user option again
 
+## CSC computers 
+
+Only Mahti GPU nodes have NVMe disk on compute nodes.
+*Otherwise full nodes are allocated for jobs, with the exception of interactive jobs*, also see below. Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti
+
+## Running a batch job
+
+```bash
+sbatch MY_FILE.bash # aja batch job
+squeue -u $USER # kysy jonossa olevat työt
+gpuseff <JOBID> to get GPU efficiency statistics
+```
+
 To see the process during the training:
 ```bash
 squeue -u $USER # to see the node id
@@ -67,10 +73,6 @@ jos gpu muistia on jäljellä, kasvata batch size
 
 tyhjennä hakemistot ennen kuin ajat varsinaisella 
 
-## CSC computers 
-
-Only Mahti GPU nodes have NVMe disk on compute nodes.
-*Otherwise full nodes are allocated for jobs, with the exception of interactive jobs*, also see below. Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti
 
 ### Running a serial job (Mahti) 
 
