@@ -76,7 +76,9 @@ python -m pip install --user .
 cd ..
 python -m pip install --user -r requirements.txt
 ```
-### Contents of a random slurm_predict.sh:
+### Contents of some batch job .sh files:
+
+Test partition:
 
 ```bash
 #!/bin/bash
@@ -91,8 +93,48 @@ module load pytorch/1.8
 
 srun python predict_squad.py
 ```
+Mahti GPU batch job:
 
-To run the batc job: `sbatch slurm_predict.sh`
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=12G
+#SBATCH --partition=gpusmall
+#SBATCH --time 02:00:00
+#SBATCH --gres=gpu:a100:1
+#SBATCH --ntasks-per-node=1
+#SBATCH --output=out_%A_%a.txt
+#SBATCH --error=err_%A_%a.txt
+#SBATCH --account=Project_2002820
+
+module purge
+module load pytorch/1.8 # if in a Puhti virtual env use pytorch/1.6 not Singularity /1.7+
+
+# source /scratch/project_2002820/hanna/my_venv/bin/activate # activate venv, only in Puhti
+
+# to not to cognest csc scratch:
+export TMPDIR=$LOCAL_SCRATCH
+export PYTORCH_PRETRAINDE_BERT_CACHE="/scratch/project_2002820/hanna/bert_cache"
+export PYTORCH_TRANSFORMERS_CACHE="/scratch/project_2002820/hanna/bert_cache"
+
+srun python run_qa.py \
+  --model_name_or_path bert-base-uncased \
+  --dataset_name squad_v2 \
+  --do_train \
+  --do_eval \
+  --per_device_train_batch_size 12 \
+  --learning_rate 3e-5 \
+  --num_train_epochs 2 \
+  --max_seq_length 384 \
+  --doc_stride 128 \
+  --version_2_with_negative \
+  --output_dir /scratch/project_2002820/hanna/SQuAD2.0_results/
+#  --overwrite_output_dir
+```
+
+To run the batc job: `sbatch FILE_NAME.sh`
 
 ### Batch job script parameters and commands
 
