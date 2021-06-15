@@ -35,7 +35,8 @@ gpuseff <JOBID> to get GPU efficiency statistics
 If you run the stuff in a Singularity container no venv is needed.
 
 `module purge` clear the loaded modules
-`module load pytorch/1.8` Singularity container
+
+`module load pytorch/1.8` Load a Singularity container (depends on the version if the module is a container or not)
 
 To run HuggingFace example projects install from the source:
 
