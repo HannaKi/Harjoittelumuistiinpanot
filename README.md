@@ -66,7 +66,12 @@ jos gpu muistia on jäljellä, kasvata batch size
 
 tyhjennä hakemistot ennen kuin ajat varsinaisella 
 
-### Running a serial job
+## CSC computers 
+
+Only Mahti GPU nodes have NVMe disk on compute nodes.
+*Otherwise full nodes are allocated for jobs, with the exception of interactive jobs*, also see below. Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti
+
+### Running a serial job (Mahti) 
 
 ```bash
 module purge
@@ -76,7 +81,7 @@ python -m pip install --user .
 cd ..
 python -m pip install --user -r requirements.txt
 ```
-### Contents of some batch job .sh files:
+### Contents of some Mahti batch job .sh file:
 
 Test partition:
 
@@ -193,7 +198,7 @@ https://vi.stackexchange.com/questions/16189/how-to-switch-between-buffer-and-te
 
 How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
 
-## Interactive session with Jupyter notebook
+## Interactive session with Jupyter notebook (not advisable? Does not work like this anyways...)
 
 1. Start interactive session
 
@@ -209,15 +214,3 @@ How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a
 3. Create SSH tunnel from your PC to Puhti compute node
 
 4. Open RStudio or Jupyter Notebook in local web browser
-
-
-
-
-
-
-
-
-
-
-
-
