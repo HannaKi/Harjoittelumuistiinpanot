@@ -19,7 +19,7 @@ To run HuggingFace example projects install from the source:
 git clone https://github.com/huggingface/transformers
 cd transformers
 python -m pip install .
-cd to folder where requirements.txt is
+cd ..
 python -m pip install -r requirements.txt
 ```
 
@@ -43,6 +43,7 @@ To run HuggingFace example projects install from the source:
 git clone https://github.com/huggingface/transformers
 cd transformers
 python -m pip install --user . 
+cd ..
 ```
 Important!!! --user option allows user installations in the container!
 
