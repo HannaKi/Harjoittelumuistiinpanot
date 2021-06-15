@@ -1,7 +1,7 @@
 # Harjoittelumuistiinpanot
 TurkuNLP 2021
 
-## CSC Puhti
+## Python Virtual Environment
 
 `module purge` to clear the loaded modules.
 
@@ -11,6 +11,8 @@ And then create a virtual environment, activate it, and install the requirements
 
 `python3 -m venv VENV-NAME --system-site-packages` this creates a virtual environment.
 `source VENV-NAME/bin/activate` This activates the virtual environment, so after this line, you will be in the venv until you use the command `deactivate`
+
+To install (in this case library "datasets" run: `python3 -m pip install datasets`. If pip version is too old, run: `pip install --upgrade pip`
 
 To run HuggingFace example projects install from the source:
 
@@ -28,9 +30,9 @@ squeue -u $USER # kysy jonossa olevat työt
 gpuseff <JOBID> to get GPU efficiency statistics
 ```
 
-## CSC MAHTI
+## Singularity containers
 
-Run the stuff in a Singularity container! No venv needed.
+If you run the stuff in a Singularity container no venv is needed.
 
 `module purge` clear the loaded modules
 `module load pytorch/1.8` Singularity container
@@ -90,6 +92,10 @@ srun python predict_squad.py
 
 ```sbatch slurm_predict.sh```
 
+## Batch job script parameters
+
+`--gres=gpu:v100:<number_of_gpus_per_node>` GPU resource, number of processors to use
+
 Run your test in the test queue or in an interactive session directly from the command line
 
 ## Useful commands in CSC computers:
@@ -97,9 +103,7 @@ Run your test in the test queue or in an interactive session directly from the c
 `module list` list loaded modules
 `module purge` detach all the modules
 `module spider`
-
-
---gres=gpu:v100:<number_of_gpus_per_node>
+`module load pytorch/1.6` load a module
 
 ## Hints, tips and tricks for HPC
 
