@@ -1,5 +1,4 @@
-# Harjoittelumuistiinpanot
-TurkuNLP 2021
+# Harjoittelumuistiinpanot TurkuNLP 2021
 
 ## Python Virtual Environment
 
@@ -77,8 +76,9 @@ python -m pip install --user .
 cd ..
 python -m pip install --user -r requirements.txt
 ```
-slurm_predict.sh:
+### Contents of a random slurm_predict.sh:
 
+```bash
 #!/bin/bash
 #SBATCH --account=project_2002820
 #SBATCH --partition=test
@@ -90,21 +90,33 @@ module purge
 module load pytorch/1.8
 
 srun python predict_squad.py
+```
 
-```sbatch slurm_predict.sh```
+To run the batc job: `sbatch slurm_predict.sh`
 
-## Batch job script parameters
+### Batch job script parameters and commands
 
-`--gres=gpu:v100:<number_of_gpus_per_node>` GPU resource, number of processors to use
+GPU resource, number of processors to use: `--gres=gpu:v100:<number_of_gpus_per_node>` 
 
-Run your test in the test queue or in an interactive session directly from the command line
+#### Cache model:
 
+In the batch job sctipt file:
+
+`module load` 
+
+```bash
+export TMPDIR=$LOCAL_SCRATCH
+export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2002820/hanna/bert_cache"
+```
 ## Useful commands in CSC computers:
 
 `module list` list loaded modules
 `module purge` detach all the modules
 `module spider`
 `module load pytorch/1.6` load a module
+
+
+Run your test in the test queue or in an interactive session directly from the command line
 
 ## Hints, tips and tricks for HPC
 
@@ -118,15 +130,8 @@ Jos työ varaa 40 corea (kaikki) se vie myös koko noden muistin (silloin on ok 
 - Muistin suhteen tähtää 1-2 gigan ekstraan. CPU ajassa 100 % tehokkuuteen
 - Jos sbatchin jälkeen saat viestin kun kysyt squeue -u $USER "(Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)" --> 
 
-## Batch job scripts
 
-`module load` jälkeen:
 
-```bash
-export TMPDIR=$LOCAL_SCRATCH
-
-export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2000539/jenna/bert_cache"
-```
 ## VIM
 
 Like most Unix programs Vim can be suspended by pressing CTRL-Z. This stops Vim and takes you back to the shell it was started in. You can then do any other commands until you are bored with them. Then bring back Vim with the "fg" command.
