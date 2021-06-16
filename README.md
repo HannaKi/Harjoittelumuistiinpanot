@@ -47,10 +47,12 @@ Set the path if needed:
 
 ## CSC computers 
 
-Only Mahti GPU nodes have NVMe disk on compute nodes.
-*Otherwise full nodes are allocated for jobs, with the exception of interactive jobs*, also see below. Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti
+*Im Mahti full nodes are allocated for jobs, with the exception of interactive jobs*. 
+Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti.
 
 ## Running a batch job
+
+Always run a a test with test partition first. Remember to clear folders before you run the actual batch job.
 
 ```bash
 sbatch MY_FILE.bash # aja batch job
@@ -62,17 +64,11 @@ To see the process during the training:
 ```bash
 squeue -u $USER # to see the node id
 ssh NODEID # go to the node
-top # see the processes
+top # see the processes (exit with Ctrl + c)
 nvidia-smi # see the GPUs in work
 exit # to exit the node
 ```
-
-kasvata batch size jos GPU hyödyntäminen alhainen
-
-jos gpu muistia on jäljellä, kasvata batch size
-
-tyhjennä hakemistot ennen kuin ajat varsinaisella 
-
+If "Volatile GPU-Util" (percentages) increase batch size. 80-90 % is ok.
 
 ### Running a serial job (Mahti) 
 
