@@ -207,6 +207,9 @@ How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a
 
 ## Bash 
 
+**Chmod**
+chmod -R a+rX tydiqa
+
 **Symbolic link**
 In computing, a symbolic link (also symlink or soft link) is a term for any file that contains a reference to another file or directory in the form of an absolute or relative path and that affects pathname resolution
 `ln -s /scratch/project_2002820/filip/paraphrases para-orig`
