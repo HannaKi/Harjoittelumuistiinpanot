@@ -42,6 +42,7 @@ Important!!! --user option allows user installations in the container!
 
 Set the path if needed:
 `export PYTHONPATH="${PYTHONPATH}:/users/kittihan/.local/bin"`
+export HF_DATASETS_CACHE="${HF_DATASETS_CACHE}:/scratch/project_2002820/hanna/tydiqa"
 
 `python -m pip install --user -r requirements.txt` --user option again
 
