@@ -144,6 +144,14 @@ To run the batc job: `sbatch FILE_NAME.sh`
 
 GPU resource, number of processors to use: `--gres=gpu:v100:<number_of_gpus_per_node>` 
 
+### sinteractive in Mahti
+
+In Mahti, users can have several interactive batch job sessions in the interactive partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores shared with all user sessions cannot exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
+
+For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project project_2001234 can be launched with command:
+
+`sinteractive --account project_2001234 --time 48:00:00 --cores 6`
+
 #### Cache model:
 
 In the batch job sctipt file:
@@ -196,6 +204,12 @@ https://vi.stackexchange.com/questions/16189/how-to-switch-between-buffer-and-te
 ## Virtual machine 
 
 How to allocate more HD space: https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/
+
+## Bash 
+
+**Symbolic link**
+In computing, a symbolic link (also symlink or soft link) is a term for any file that contains a reference to another file or directory in the form of an absolute or relative path and that affects pathname resolution
+`ln -s /scratch/project_2002820/filip/paraphrases para-orig`
 
 ## Interactive session with Jupyter notebook (not advisable? Does not work like this anyways...)
 
