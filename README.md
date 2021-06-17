@@ -42,7 +42,6 @@ Important!!! --user option allows user installations in the container!
 
 Set the path if needed:
 `export PYTHONPATH="${PYTHONPATH}:/users/kittihan/.local/bin"`
-export HF_DATASETS_CACHE="${HF_DATASETS_CACHE}:/scratch/project_2002820/hanna/tydiqa"
 
 `python -m pip install --user -r requirements.txt` --user option again
 
@@ -153,16 +152,21 @@ For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h r
 
 `sinteractive --account project_2001234 --time 48:00:00 --cores 6`
 
-#### Cache model:
+#### Caches:
+
+... are bad!
+
+Before training remove this, if you have it: cd ~/.cache/huggingface/
+and even better, set the path: https://huggingface.co/docs/datasets/installation.html
 
 In the batch job sctipt file:
-
-`module load` 
 
 ```bash
 export TMPDIR=$LOCAL_SCRATCH
 export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2002820/hanna/bert_cache"
 ```
+Should also be in the script: export HF_DATASETS_CACHE="${HF_DATASETS_CACHE}:/scratch/project_2002820/hanna/tydiqa/hf_cache OR optionally give it as a param to the python code for training.
+
 ## Useful commands in CSC computers:
 
 `module list` list loaded modules
