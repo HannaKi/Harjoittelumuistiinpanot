@@ -70,6 +70,19 @@ exit # to exit the node
 ```
 If "Volatile GPU-Util" (percentages) increase batch size. 80-90 % is ok.
 
+### Running sinteractive partition in Mahti
+
+In Mahti you can only adjust the memory reserved by running an interactive job!
+
+sinteractive --account project_200XXXX --time 48:00:00 --cores 6
+
+module purge
+module load XXX
+
+python -m pip install --user XXXXX
+
+No batch job script needed in interactive mode, just ryn your .py file.
+
 ### Running a serial job (Mahti) 
 
 ```bash
@@ -80,13 +93,13 @@ python -m pip install --user .
 cd ..
 python -m pip install --user -r requirements.txt
 ```
-### Contents of some Mahti batch job .sh file:
+#### Contents of some Mahti batch job .sh file:
 
 Test partition:
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_2002820
+#SBATCH --account=project_200XXXX
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
 #SBATCH --nodes=1
@@ -111,7 +124,7 @@ Mahti GPU batch job:
 #SBATCH --ntasks-per-node=1
 #SBATCH --output=out_%A_%a.txt
 #SBATCH --error=err_%A_%a.txt
-#SBATCH --account=Project_2002820
+#SBATCH --account=Project_200XXXX
 
 module purge
 module load pytorch/1.8 # if in a Puhti virtual env use pytorch/1.6 not Singularity /1.7+
