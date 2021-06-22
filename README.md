@@ -253,7 +253,9 @@ In computing, a symbolic link (also symlink or soft link) is a term for any file
 # Adapting the run_qa.py to paraphrase detection
 
 1. In the training parameters set:
---pad_to_max_length False \
+--pad_to_max_length False \ 
+
+(otherwise data_collator crashes the code)
 
 in the run_qa.py from line 121:
 
@@ -267,7 +269,7 @@ in the run_qa.py from line 121:
         },
     )
 ```
-2. In the run_qa.py starting from line 334 comment out `truncation="only_second" if pad_on_right else "only_first"`
+2. In the run_qa.py starting from line 334 comment out `truncation="only_second" if pad_on_right else "only_first"` 
 
 ```bash
 # Training preprocessing
