@@ -288,5 +288,15 @@ in the run_qa.py from line 121:
             padding="max_length" if data_args.pad_to_max_length else False,
         )
 ```
+Possible problems: 
+1. Should this be done with `def prepare_validation_features(examples)` also?!
 
-Should this be done with `def prepare_validation_features(examples)` also?!
+2. SHOULD IT BE: `truncation="longest_first",`
+
+from https://huggingface.co/transformers/main_classes/tokenizer.html:
+
+"truncation (bool, str or TruncationStrategy, optional, defaults to False) –
+
+Activates and controls truncation. Accepts the following values:
+
+    True or 'longest_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that argument is not provided. This will truncate token by token, removing a token from the longest sequence in the pair if a pair of sequences (or a batch of pairs) is provided."
