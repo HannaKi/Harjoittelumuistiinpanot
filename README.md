@@ -47,7 +47,7 @@ Set the path if needed:
 
 ## CSC computers 
 
-*Im Mahti full nodes are allocated for jobs, with the exception of interactive jobs*. 
+*In Mahti full nodes are allocated for jobs, with the exception of interactive jobs*. 
 Many options also work differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti to Mahti.
 
 ## Running a batch job
@@ -68,7 +68,7 @@ top # see the processes (exit with Ctrl + c)
 nvidia-smi # see the GPUs in work
 exit # to exit the node
 ```
-If "Volatile GPU-Util" (percentages) increase batch size. 80-90 % is ok.
+If "Volatile GPU-Util" (percentages) is low increase batch size. 80-90 % is ok.
 
 ### Running sinteractive partition in Mahti
 
