@@ -252,8 +252,7 @@ In computing, a symbolic link (also symlink or soft link) is a term for any file
 
 # Adapting the run_qa.py to paraphrase detection
 
-1. 
-in the training parameters set:
+1. In the training parameters set:
 --pad_to_max_length False \
 
 in the run_qa.py from line 121:
