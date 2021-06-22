@@ -255,7 +255,7 @@ In computing, a symbolic link (also symlink or soft link) is a term for any file
 1. In the training parameters set:
 --pad_to_max_length False \ 
 
-(otherwise data_collator crashes the code)
+(otherwise `pyo3_runtime.PanicException: assertion failed: stride < max_len` crashes the code)
 
 in the run_qa.py from line 121:
 
@@ -270,6 +270,8 @@ in the run_qa.py from line 121:
     )
 ```
 2. In the run_qa.py starting from line 334 comment out `truncation="only_second" if pad_on_right else "only_first"` 
+
+(otherwise data_collator crashes the code)
 
 ```bash
 # Training preprocessing
@@ -299,4 +301,6 @@ from https://huggingface.co/transformers/main_classes/tokenizer.html:
 
 Activates and controls truncation. Accepts the following values:
 
-    True or 'longest_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that argument is not provided. This will truncate token by token, removing a token from the longest sequence in the pair if a pair of sequences (or a batch of pairs) is provided."
+True or 'longest_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that
+argument is not provided. This will truncate token by token, removing a token from the longest sequence in the pair if a pair of sequences (or a batch of pairs)
+is provided."
