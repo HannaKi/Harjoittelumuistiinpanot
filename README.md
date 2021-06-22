@@ -248,3 +248,44 @@ In computing, a symbolic link (also symlink or soft link) is a term for any file
 3. Create SSH tunnel from your PC to Puhti compute node
 
 4. Open RStudio or Jupyter Notebook in local web browser
+
+
+# Adapting the run_qa.py to paraphrase detection
+
+1. 
+in the training parameters set:
+--pad_to_max_length False \
+
+in the run_qa.py from line 121:
+
+```bash
+     pad_to_max_length: bool = field(
+        default=True,
+        metadata={
+            "help": "Whether to pad all samples to `max_seq_length`. "
+            "If False, will pad the samples dynamically when batching to the maximum length in the batch (which can "
+            "be faster on GPU but will be slower on TPU)."
+        },
+    )
+```
+2. In the run_qa.py starting from line 334 comment out `truncation="only_second" if pad_on_right else "only_first"`
+
+```bash
+# Training preprocessing
+    def prepare_train_features(examples):
+        # Tokenize our examples with truncation and maybe padding, but keep the overflows using a stride. This results
+        # in one example possible giving several features when a context is long, each of those features having a
+        # context that overlaps a bit the context of the previous feature.
+        tokenized_examples = tokenizer(
+            examples[question_column_name if pad_on_right else context_column_name],
+            examples[context_column_name if pad_on_right else question_column_name],
+            # truncation="only_second" if pad_on_right else "only_first",
+            max_length=max_seq_length,
+            stride=data_args.doc_stride,
+            return_overflowing_tokens=True,
+            return_offsets_mapping=True,
+            padding="max_length" if data_args.pad_to_max_length else False,
+        )
+```
+
+Should this be done with `def prepare_validation_features(examples)` also?!
