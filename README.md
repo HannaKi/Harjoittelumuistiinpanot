@@ -307,4 +307,9 @@ is provided."
 
 # Random notes
 
-- Making IDs for the data: A better option than uuid is to concatenate the texts, encode into bytestring with .encode("utf-8") and then take a hash and its hexdigest. That produces a unique, if somewhat long id, which you can always reconstruct in case you lose it in some processing step
+- Making IDs for the data: A better option than uuid is to concatenate the texts, encode into bytestring with .encode("utf-8") and then take a hash and its hexdigest. That produces a unique, if somewhat long id, which you can always reconstruct in case you lose it in some processing step:
+
+```bash
+hashlib.sha1("Minulla on koira".encode("utf-8")).hexdigest()
+'2e79bb1326caaca14c0954a612a8c18e4d2049c1'
+```
