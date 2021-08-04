@@ -183,9 +183,14 @@ Should also be in the script: export HF_DATASETS_CACHE="${HF_DATASETS_CACHE}:/sc
 ## Useful commands in CSC computers:
 
 `module list` list loaded modules
+
 `module purge` detach all the modules
+
 `module spider`
+
 `module load pytorch/1.6` load a module
+
+`csc-workspaces` command will show you which projects you're a member of.
 
 
 Run your test in the test queue or in an interactive session directly from the command line
