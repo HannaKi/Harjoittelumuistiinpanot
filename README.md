@@ -48,13 +48,12 @@ Set the path if needed:
 
 ## Hyperparameter search with Ray Tune
 
-class HfArgumentParser(ArgumentParser):
-    """
-    This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments.
+class HfArgumentParser(ArgumentParser): "This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments."
 
 Install Ray Tune and Tensorboard:
 
-`python -m pip install --user 'ray[dafault]' `
+`python -m pip install --user 'ray[dafault]'`
+
 `python -m pip install --user tensorboardX`
 
 ## CSC computers 
