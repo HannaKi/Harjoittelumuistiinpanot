@@ -106,6 +106,66 @@ python -m pip install --user -r requirements.txt
 ```
 #### Contents of some Mahti batch job .sh file:
 
+GPUtest partition:
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=6G
+#SBATCH --partition=gputest
+#SBATCH --time 00:15:00
+#SBATCH --gres=gpu:a100:1
+#SBATCH --ntasks-per-node=1
+#SBATCH --output=out_%A_%a.txt
+#SBATCH --error=err_%A_%a.txt
+#SBATCH --account=Project_2002820
+
+module purge
+module load pytorch/1.8 # if in a Puhti virtual env use pytorch/1.6 not Singularity /1.7+
+
+# source /scratch/project_2002820/hanna/my_venv/bin/activate # activate venv, only in Puhti
+
+# to not to cognest csc scratch:
+export TMPDIR=$LOCAL_SCRATCH
+export PYTORCH_PRETRAINDE_BERT_CACHE="./caches/bert_cache"
+export PYTORCH_TRANSFORMERS_CACHE="./caches/bert_cache"
+export HF_DATASETS_CACHE="./caches/hf_cache"
+export HF_HOME="./caches/hf_cache"
+export TRANSFORMERS_CACHE="./caches/tf_cache"
+
+# Modified from the README.md:
+--model_name_or_path TurkuNLP/bert-base-finnish-cased-v1 \
+  --train_file paraphrases/train_data_para_detect.json \
+  --validation_file paraphrases/dev_data_para_detect.json \
+  --test_file paraphrases/test_data_para_detect.json \
+  --do_train \
+  --do_eval \
+  --do_predict \
+  --per_device_train_batch_size 12 \
+  --per_device_eval_batch_size 12 \
+  --learning_rate 3e-5 \
+  --num_train_epochs 2 \
+  --max_seq_length 384 \
+  --doc_stride 128 \
+  --version_2_with_negative \
+  --output_dir ./training_results/ \
+  --overwrite_cache \
+  --cache_dir ./caches/_cache/ \
+#  --pad_to_max_length \
+  --overwrite_output_dir \
+  --max_train_samples 200 \ # for debugging
+  --max_eval_samples 100 \ # for debugging
+  --max_predict_samples 100 \ # for debugging
+# for hyperparameter search
+  --evaluation_strategy="epoch" \
+  --save_strategy="epoch" \
+  --load_best_model_at_end True \
+  --metric_for_best_model "eval_f1" \
+
+```
+
 Test partition:
 
 ```bash
