@@ -34,6 +34,15 @@ To run HuggingFace example projects install from the source:
 
 ```bash
 git clone https://github.com/huggingface/transformers
+
+## Hyperparameter search with Ray Tune
+
+class HfArgumentParser(ArgumentParser):
+    """
+    This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments.
+
+`python -m pip install --user 'ray[dafault]' `
+`python -m pip install --user tensorboardX`
 cd transformers
 python -m pip install --user . 
 cd ..
