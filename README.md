@@ -52,7 +52,7 @@ class HfArgumentParser(ArgumentParser): "This subclass of `argparse.ArgumentPars
 
 Install Ray Tune and Tensorboard:
 
-`python -m pip install --user 'ray[dafault]'`
+`python -m pip install --user 'ray[tune]'`
 
 `python -m pip install --user tensorboardX`
 
