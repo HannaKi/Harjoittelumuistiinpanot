@@ -52,6 +52,8 @@ One should not call the HfArgumentParser with
 
 `--overwrite_output_dir True`, but just with `--overwrite_output_dir` to set the bool from False to True. If one wants to leave it as False, the arg should just not be passed. If the default field of this variable is already True and one wants to set it to False the argument should be passed as follows: `--no_remove_unused_columns`, see: https://github.com/huggingface/transformers/blob/master/src/transformers/hf_argparser.py#L83
 
+(from: https://github.com/huggingface/transformers/issues/9224)
+
 ## Hyperparameter search with Ray Tune
 
 class HfArgumentParser(ArgumentParser): "This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments."
