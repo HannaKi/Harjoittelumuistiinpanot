@@ -22,6 +22,7 @@ python -m pip install .
 cd ..
 python -m pip install -r requirements.txt
 ```
+
 ## Singularity containers
 
 If you run the stuff in a Singularity container no venv is needed.
@@ -34,15 +35,6 @@ To run HuggingFace example projects install from the source:
 
 ```bash
 git clone https://github.com/huggingface/transformers
-
-## Hyperparameter search with Ray Tune
-
-class HfArgumentParser(ArgumentParser):
-    """
-    This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments.
-
-`python -m pip install --user 'ray[dafault]' `
-`python -m pip install --user tensorboardX`
 cd transformers
 python -m pip install --user . 
 cd ..
@@ -53,6 +45,17 @@ Set the path if needed:
 `export PYTHONPATH="${PYTHONPATH}:/users/kittihan/.local/bin"`
 
 `python -m pip install --user -r requirements.txt` --user option again
+
+## Hyperparameter search with Ray Tune
+
+class HfArgumentParser(ArgumentParser):
+    """
+    This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments.
+
+Install Ray Tune and Tensorboard:
+
+`python -m pip install --user 'ray[dafault]' `
+`python -m pip install --user tensorboardX`
 
 ## CSC computers 
 
