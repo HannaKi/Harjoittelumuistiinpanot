@@ -46,7 +46,7 @@ Set the path if needed:
 
 `python -m pip install --user -r requirements.txt` --user option again
 
-## Setting the arguments
+## Setting the arguments for HFArgumentParser
 
 One should not call the HfArgumentParser with
 
@@ -93,12 +93,14 @@ If "Volatile GPU-Util" (percentages) is low increase batch size. 80-90 % is ok.
 
 In Mahti you can only adjust the memory reserved by running an interactive job!
 
+```bash
 sinteractive --account project_200XXXX --time 48:00:00 --cores 6
 
 module purge
 module load XXX
 
 python -m pip install --user XXXXX
+```
 
 No batch job script needed in interactive mode, just ryn your .py file.
 
@@ -260,6 +262,16 @@ export PYTORCH_PRETRAINED_BERT_CACHE="/scratch/project_2002820/hanna/bert_cache"
 Should also be in the script: export HF_DATASETS_CACHE="${HF_DATASETS_CACHE}:/scratch/project_2002820/hanna/tydiqa/hf_cache OR optionally give it as a param to the python code for training.
 
 ## Useful commands in CSC computers:
+
+`sbatch batch_job.bash` The job script file is submitted with the command
+
+`squeue -u $USER` List all your jobs that are queuing/running
+
+`scontrol show job <jobid>` Detailed info of a queuing/running job
+
+`scancel <jobid>` A job can be deleted using the command
+
+`seff <jobid>` Display the used resources of a completed job
 
 `module list` list loaded modules
 
