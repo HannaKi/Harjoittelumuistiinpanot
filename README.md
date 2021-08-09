@@ -464,8 +464,18 @@ in the run_qa.py from line 121:
             padding="max_length" if data_args.pad_to_max_length else False,
         )
 ```
+from: https://huggingface.co/transformers/internal/tokenization_utils.html#transformers.tokenization_utils_base.TruncationStrategy
+truncation_strategy (str or TruncationStrategy, optional, defaults to False) –
 
-truncation='do_not_truncate' (default): No truncation (i.e., can output batch with sequence lengths greater than the model maximum admissible input size).
+The strategy to follow for truncation. Can be:
+
+    'longest_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that argument is not provided. This will truncate token by token, removing a token from the longest sequence in the pair if a pair of sequences (or a batch of pairs) is provided.
+
+    'only_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that argument is not provided. This will only truncate the first sequence of a pair if a pair of sequences (or a batch of pairs) is provided.
+
+    'only_second': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that argument is not provided. This will only truncate the second sequence of a pair if a pair of sequences (or a batch of pairs) is provided.
+
+    'do_not_truncate' (default): No truncation (i.e., can output batch with sequence lengths greater than the model maximum admissible input size).
 
 Possible problems: 
 1. Should this be done with `def prepare_validation_features(examples)` also?!
