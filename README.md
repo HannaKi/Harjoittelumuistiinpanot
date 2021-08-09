@@ -130,7 +130,7 @@ GPUtest partition:
 #SBATCH --ntasks-per-node=1
 #SBATCH --output=out_%A_%a.txt
 #SBATCH --error=err_%A_%a.txt
-#SBATCH --account=Project_2002820
+#SBATCH --account=Project_200XXXX
 
 module purge
 module load pytorch/1.8 # if in a Puhti virtual env use pytorch/1.6 not Singularity /1.7+
@@ -146,10 +146,11 @@ export HF_HOME="./caches/hf_cache"
 export TRANSFORMERS_CACHE="./caches/tf_cache"
 
 # Modified from the README.md:
---model_name_or_path TurkuNLP/bert-base-finnish-cased-v1 \
-  --train_file paraphrases/train_data_para_detect.json \
-  --validation_file paraphrases/dev_data_para_detect.json \
-  --test_file paraphrases/test_data_para_detect.json \
+srun python run_para_hp_search.py \
+  --model_name_or_path TurkuNLP/bert-base-finnish-cased-v1 \
+  --train_file sample_train.json \
+  --validation_file sample_dev.json \
+  --test_file sample_test.json \
   --do_train \
   --do_eval \
   --do_predict \
@@ -163,16 +164,8 @@ export TRANSFORMERS_CACHE="./caches/tf_cache"
   --output_dir ./training_results/ \
   --overwrite_cache \
   --cache_dir ./caches/_cache/ \
-#  --pad_to_max_length \
-  --overwrite_output_dir \
-  --max_train_samples 200 \ # for debugging
-  --max_eval_samples 100 \ # for debugging
-  --max_predict_samples 100 \ # for debugging
-# for hyperparameter search
-  --evaluation_strategy="epoch" \
-  --save_strategy="epoch" \
-  --load_best_model_at_end True \
-  --metric_for_best_model "eval_f1" \
+  --evaluation_strategy "epoch" \
+  --save_strategy "epoch" \
 
 ```
 
