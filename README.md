@@ -480,18 +480,6 @@ The strategy to follow for truncation. Can be:
 Possible problems: 
 1. Should this be done with `def prepare_validation_features(examples)` also?!
 
-2. SHOULD IT BE: `truncation="longest_first",`
-
-from https://huggingface.co/transformers/main_classes/tokenizer.html:
-
-"truncation (bool, str or TruncationStrategy, optional, defaults to False) –
-
-Activates and controls truncation. Accepts the following values:
-
-True or 'longest_first': Truncate to a maximum length specified with the argument max_length or to the maximum acceptable input length for the model if that
-argument is not provided. This will truncate token by token, removing a token from the longest sequence in the pair if a pair of sequences (or a batch of pairs)
-is provided."
-
 # Random notes
 
 - Making IDs for the data: A better option than uuid is to concatenate the texts, encode into bytestring with .encode("utf-8") and then take a hash and its hexdigest. That produces a unique, if somewhat long id, which you can always reconstruct in case you lose it in some processing step:
