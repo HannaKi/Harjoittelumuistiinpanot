@@ -464,6 +464,9 @@ in the run_qa.py from line 121:
             padding="max_length" if data_args.pad_to_max_length else False,
         )
 ```
+
+truncation='do_not_truncate' (default): No truncation (i.e., can output batch with sequence lengths greater than the model maximum admissible input size).
+
 Possible problems: 
 1. Should this be done with `def prepare_validation_features(examples)` also?!
 
