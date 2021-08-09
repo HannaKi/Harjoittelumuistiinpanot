@@ -54,6 +54,10 @@ One should not call the HfArgumentParser with
 
 (from: https://github.com/huggingface/transformers/issues/9224)
 
+## Hyperparameter search with for loops
+
+
+
 ## Hyperparameter search with Ray Tune
 
 class HfArgumentParser(ArgumentParser): "This subclass of `argparse.ArgumentParser` uses type hints on dataclasses to generate arguments."
