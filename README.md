@@ -56,6 +56,8 @@ One should not call the HfArgumentParser with
 
 ## Hyperparameter search with for loops
 
+from: https://github.com/spyysalo/transformer-ner/blob/main/scripts/slurm-run-parameter-grid.sh
+
 ```bash
 #!/bin/bash
 
