@@ -487,3 +487,5 @@ The strategy to follow for truncation. Can be:
 hashlib.sha1("Minulla on koira".encode("utf-8")).hexdigest()
 '2e79bb1326caaca14c0954a612a8c18e4d2049c1'
 ```
+
+- Do not run any test or evaluations with the test data, use development data instead. There is a risk for optimizing on the test data results. The test set is only used for the final results!
