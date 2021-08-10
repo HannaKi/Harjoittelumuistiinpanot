@@ -489,3 +489,6 @@ hashlib.sha1("Minulla on koira".encode("utf-8")).hexdigest()
 ```
 
 - Do not run any test or evaluations with the test data, use development data instead. There is a risk for optimizing on the test data results. The test set is only used for the final results!
+
+- To investigate disk space usage use `ncdu` https://dev.yorhel.nl/ncdu 
+`/projappl/project_2002820/bin/ncdu /scratch/project_2002820/hanna/paraphrases/`
