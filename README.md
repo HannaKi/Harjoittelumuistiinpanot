@@ -174,7 +174,7 @@ exit # to exit the node
 ```
 If "Volatile GPU-Util" (percentages) is low increase batch size. 80-90 % is ok.
 
-### Running sinteractive partition in Mahti
+## Running sinteractive partition in Mahti
 
 In Mahti you can only adjust the memory reserved by running an interactive job!
 
@@ -189,7 +189,7 @@ python -m pip install --user XXXXX
 
 No batch job script needed in interactive mode, just ryn your .py file.
 
-### Running a serial job (Mahti) 
+## Running a serial job (Mahti) 
 
 ```bash
 module purge
@@ -199,7 +199,7 @@ python -m pip install --user .
 cd ..
 python -m pip install --user -r requirements.txt
 ```
-#### Contents of some Mahti batch job .sh file:
+### Contents of some Mahti batch job .sh file:
 
 GPUtest partition:
 
@@ -324,7 +324,7 @@ For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h r
 
 `sinteractive --account project_2001234 --time 48:00:00 --cores 6`
 
-#### Caches:
+## Caches:
 
 ... are bad!
 
@@ -405,6 +405,8 @@ chmod -R a+rX tydiqa
 **Symbolic link**
 In computing, a symbolic link (also symlink or soft link) is a term for any file that contains a reference to another file or directory in the form of an absolute or relative path and that affects pathname resolution
 `ln -s /scratch/project_2002820/filip/paraphrases para-orig`
+
+Filip: "symlink ln -s is basically an alias for a directory name, you can have symlinks like ../../someplace or then you can have symlinks like /home/... - one way or another, it is basically a path name, the data exists only once. If you delete it, it is gone and the symlink becomes stale, it will give you a "no such file" error. A hard link ln which I hardly every use, is then the exact file or directory, simply referred to again. If you delete it in the other place, it keeps living because it is referred to from several places. I think hardlinks are quite scary because you can think you deleted something, while you did not (makes cleaning up disk space quite the adventure), so I think we basically never use them. hardlinks are super-useful for snapshot backups though, if a file changed, you copy it, if a file remains the same, you hard-link it in the backup, saves space."
 
 ## Interactive session with Jupyter notebook (not advisable? Does not work like this anyways...)
 
