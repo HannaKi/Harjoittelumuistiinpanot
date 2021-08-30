@@ -174,21 +174,6 @@ exit # to exit the node
 ```
 If "Volatile GPU-Util" (percentages) is low increase batch size. 80-90 % is ok.
 
-## Running sinteractive partition in Mahti
-
-In Mahti you can only adjust the memory reserved by running an interactive job!
-
-```bash
-sinteractive --account project_200XXXX --time 48:00:00 --cores 6
-
-module purge
-module load XXX
-
-python -m pip install --user XXXXX
-```
-
-No batch job script needed in interactive mode, just ryn your .py file.
-
 ## Running a serial job (Mahti) 
 
 ```bash
@@ -323,6 +308,19 @@ In Mahti, users can have several interactive batch job sessions in the interacti
 For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project project_2001234 can be launched with command:
 
 `sinteractive --account project_2001234 --time 48:00:00 --cores 6`
+
+In Mahti you can only adjust the memory reserved by running an interactive job!
+
+```bash
+sinteractive --account project_200XXXX --time 48:00:00 --cores 6
+
+module purge
+module load XXX
+
+python -m pip install --user XXXXX
+```
+
+No batch job script needed in interactive mode, just ryn your .py file.
 
 ## Caches:
 
