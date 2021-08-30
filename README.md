@@ -322,6 +322,16 @@ python -m pip install --user XXXXX
 
 No batch job script needed in interactive mode, just ryn your .py file.
 
+Or simply: `sinteractive --account project_2002820` Will give:
+
+```bash
+Interactive batch job is launched with following resources:
+  Maximum run time (hours:min:sec): 24:00:00
+  Maximum memory (MB): 3750 
+  Number of cores/threads: 2 
+  Accounting project: project_2002820
+```
+
 ## Caches:
 
 ... are bad!
