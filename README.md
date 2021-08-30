@@ -303,13 +303,11 @@ GPU resource, number of processors to use: `--gres=gpu:v100:<number_of_gpus_per_
 
 ### sinteractive in Mahti
 
+In Mahti you can only adjust the memory reserved by running an interactive job!
+
 In Mahti, users can have several interactive batch job sessions in the interactive partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores shared with all user sessions cannot exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
 
 For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project project_2001234 can be launched with command:
-
-`sinteractive --account project_2001234 --time 48:00:00 --cores 6`
-
-In Mahti you can only adjust the memory reserved by running an interactive job!
 
 ```bash
 sinteractive --account project_200XXXX --time 48:00:00 --cores 6
@@ -319,9 +317,6 @@ module load XXX
 
 python -m pip install --user XXXXX
 ```
-
-No batch job script needed in interactive mode, just ryn your .py file.
-
 Or simply: `sinteractive --account project_2002820` Will give:
 
 ```bash
@@ -331,6 +326,8 @@ Interactive batch job is launched with following resources:
   Number of cores/threads: 2 
   Accounting project: project_2002820
 ```
+
+No batch job script needed in interactive mode, just run your .py file.
 
 ## Caches:
 
