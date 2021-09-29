@@ -443,3 +443,8 @@ hashlib.sha1("Minulla on koira".encode("utf-8")).hexdigest()
 
 - To investigate disk space usage use `ncdu` https://dev.yorhel.nl/ncdu 
 `/projappl/project_2002820/bin/ncdu /scratch/project_2002820/hanna/paraphrases/`
+
+# Useful web pages for QA:
+https://qa.fastforwardlabs.com/pytorch/hugging%20face/wikipedia/bert/transformers/2020/05/19/Getting_Started_with_QA.html#Let's-try-our-model!
+
+https://qa.fastforwardlabs.com/no%20answer/null%20threshold/bert/distilbert/exact%20match/f1/robust%20predictions/2020/06/09/Evaluating_BERT_on_SQuAD.html#A-positive-example
